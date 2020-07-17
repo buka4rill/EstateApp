@@ -3,6 +3,8 @@ using System.Threading.Tasks;
 using EstateApp.Data.DataBaseContexts.ApplicationDbContext;
 using EstateApp.Data.DataBaseContexts.AuthenticationDbContext;
 using EstateApp.Data.Entities;
+using EstateApp.Web.Interfaces;
+using EstateApp.Web.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
@@ -60,6 +62,9 @@ namespace EstateApp.Web
             });
 
             services.AddControllersWithViews();
+
+            // Link up the IAccount Service
+            services.AddTransient<IAccountsService, AccountsService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
