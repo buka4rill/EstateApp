@@ -1,0 +1,26 @@
+@using Microsoft.AspNetCore.Identity
+
+@using EstateApp.Data.Entities
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+@if (SignInManager.IsSignedIn(User))
+{
+    <div class="button navbar-right">
+        <form asp-action="post">
+            <button class="navbar-btn nav-button wow bounceInRight login" asp-controller="Accounts" asp-action="Logout" data-wow-delay="0.4s">Logout</button>
+        </form>
+        @* <button class="navbar-btn nav-button wow fadeInRight" onclick=" window.open('submit-property.html')" data-wow-delay="0.5s">Register</button> *@
+    </div>
+}
+else
+{
+    <div class="button navbar-right">
+        <button class="navbar-btn nav-button wow bounceInRight login"  data-wow-delay="0.4s">
+            <a href="~/accounts/login" style="color: inherit;">Login</a>    
+        </button>
+        <button class="navbar-btn nav-button wow fadeInRight"  data-wow-delay="0.5s">
+            <a href="~/accounts/register" style="color: inherit;">Register</a>    
+        </button>
+    </div>
+}

@@ -26,6 +26,14 @@ namespace EstateApp.Web.Controllers
             _signInManager = signInManager;
         }
 
+        // Logout Function
+        [HttpPost]
+        public async Task<IActionResult> Logout()
+        {
+            await _signInManager.SignOutAsync();
+            return LocalRedirect("~/");
+        }
+
         // Controller Action for Login Page
         // This one returns the View
         [HttpGet]
