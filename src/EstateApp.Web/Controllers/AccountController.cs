@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace EstateApp.Web.Controllers
 {
-    public class AccountsController : Controller
+    public class AccountController : Controller
     {
         /**    
             Dependeny Injection - A way to get in objects/classes/services
@@ -20,7 +20,7 @@ namespace EstateApp.Web.Controllers
         // Contructor for class
         private readonly IAccountsService _accountsService;
         private readonly SignInManager<ApplicationUser> _signInManager;
-        public AccountsController(IAccountsService accountsService, SignInManager<ApplicationUser> signInManager)
+        public AccountController(IAccountsService accountsService, SignInManager<ApplicationUser> signInManager)
         {
             _accountsService = accountsService;
             _signInManager = signInManager;

@@ -2,10 +2,12 @@ using System;
 using System.Threading.Tasks;
 using EstateApp.Web.Interfaces;
 using EstateApp.Web.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EstateApp.Web.Controllers
 {
+    [Authorize]
     public class PropertiesController : Controller
     {
         // Controller, Dependency Injection
@@ -17,7 +19,7 @@ namespace EstateApp.Web.Controllers
 
         // Display list of properties page
 
-        [HttpGet]
+        [AllowAnonymous] // Allows unidentified user view property
         public IActionResult Index()
         {
             // Properties
