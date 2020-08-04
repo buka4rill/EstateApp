@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using EstateApp.Data.DataBaseContexts.ApplicationDbContext;
 using EstateApp.Data.Entities;
@@ -16,6 +17,14 @@ namespace EstateApp.Web.Services
             _dbContext = dbcontext;
         }
 
+        public IEnumerable<Property> GetAllProperties()
+        {
+            // Need to return a list of properties
+
+            // We can paginate later
+
+            return _dbContext.Properties;
+        }
 
         public async Task AddProperty(PropertyModel model)
         {

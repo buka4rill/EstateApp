@@ -47,19 +47,26 @@
                                             </div> 
                                         </div>
                                     </div>
+
+                                    <div asp-validation-summary="All" class="text-danger"></div>
+
+
                                     <div class="col-sm-6">
                                         <div class="form-group">
-                                            <label>Property name <small>(required)</small></label>
+                                            <label asp-for="Title">Property name <small>(required)</small></label>
                                             <input asp-for="Title" type="text" class="form-control" placeholder="Super villa ...">
+                                            <span asp-validation-for="Title" class="text-danger"></span>
                                         </div>
 
                                         <div class="form-group">
-                                            <label>Property price <small>(required)</small></label>
+                                            <label asp-for="Price">Property price <small>(required)</small></label>
                                             <input asp-for="Price" type="text" class="form-control" placeholder="3330000">
+                                            <span asp-validation-for="Price" class="text-danger"></span>
                                         </div> 
                                         <div class="form-group">
-                                            <label>Contact Phone Number <small>(empty if you wanna use default phone number)</small></label>
+                                            <label asp-for="ContactPhoneNumber">Contact Phone Number <small>(empty if you wanna use default phone number)</small></label>
                                             <input asp-for="ContactPhoneNumber" type="text" class="form-control" placeholder="+1 473 843 7436">
+                                            <span asp-validation-for="ContactPhoneNumber" class="text-danger"></span>
                                         </div>
                                     </div>
                                 </div>
@@ -72,8 +79,9 @@
                                     <div class="col-sm-12"> 
                                         <div class="col-sm-12"> 
                                             <div class="form-group">
-                                                <label>Property Description :</label>
+                                                <label asp-for="Description">Property Description :</label>
                                                 <textarea asp-for="Description" class="form-control" ></textarea>
+                                                <span asp-validation-for="Description" class="text-danger"></span>
                                             </div> 
                                         </div> 
                                     </div>
@@ -120,22 +128,25 @@
                                     <div class="col-sm-12 padding-top-15">                                                   
                                         <div class="col-sm-4">
                                             <div class="form-group">
-                                                <label for="property-geo">Number of Rooms :</label>
+                                                <label asp-for="NumberOfRooms">Number of Rooms :</label>
                                                 <input type="number" asp-for="NumberOfRooms" class="span2 form-control" value="" />
+                                                <span asp-validation-for="NumberOfRooms" class="text-danger"></span>
                                             </div>
                                         </div>
                                         <div class="col-sm-4">
 
                                             <div class="form-group">
-                                                <label for="price-range">Number of Baths :</label>
+                                                <label asp-for="NumberOfBaths">Number of Baths :</label>
                                                 <input asp-for="NumberOfBaths" type="number" class="span2 form-control" value="" />
+                                                <span asp-validation-for="NumberOfBaths" class="text-danger"></span>
                                             </div>
                                         </div>
                                         <div class="col-sm-4">
 
                                             <div class="form-group">
-                                                <label for="property-geo"> Number of Toilets :</label>
+                                                <label asp-for="NumberOfToilets"> Number of Toilets :</label>
                                                 <input asp-for="NumberOfToilets" type="number" class="span2 form-control" value="" />
+                                                <span asp-validation-for="NumberOfToilets" class="text-danger"></span>
                                             </div>
                                         </div>   
                                     </div>
@@ -230,8 +241,9 @@
                                             <p class="help-block">Select multipel images for your property .</p>
                                         </div>
                                         <div class="form-group">
-                                            <label> Address :</label>
+                                            <label asp-for="Address"> Address :</label>
                                             <input asp-for="Address" class="form-control" />
+                                            <span asp-validation-for="Address"></span>
                                         </div>
                                     </div>
                                     <div class="col-sm-6"> 

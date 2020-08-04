@@ -20,7 +20,9 @@ namespace EstateApp.Web.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            return View();
+            // Properties
+            var properties = _propertyService.GetAllProperties();
+            return View(properties);
         }
 
         // Add a property
@@ -34,12 +36,11 @@ namespace EstateApp.Web.Controllers
         public async Task<IActionResult> Add(PropertyModel model)
         {
             // throw new NotImplementedException();
+            //  Validate model
+            if (!ModelState.IsValid) return View();
 
             try
             {
-                //  Validate model
-                
-
                 await _propertyService.AddProperty(model);
                 return RedirectToAction(nameof(Index));
             }
