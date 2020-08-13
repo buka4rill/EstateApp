@@ -1,0 +1,36 @@
+version: "3.8"
+
+# Add Networks
+networks:
+  estate-app-network:
+
+# Declare Services
+services:
+  sqlserver:
+    image: "mcr.microsoft.com/mssql/server"
+    container_name: sqlserver
+    networks:
+      - estate-app-network
+    restart: always
+    environment:
+      - SA_PASSWORD=Dev@12345
+      - ACCEPT_EULA=Y
+    ports:
+      - "1433:1433"
+
+  web:
+    container_name: web
+    image: web
+    build:
+      context: . # This file is operating in the src folder
+      dockerfile: ./EstateApp.Web/Dockerfile
+    depends_on:
+      - sqlserver
+    networks:
+      - estate-app-network
+    restart: always
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "5000:5000"
+      - "5001:5001"
